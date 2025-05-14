@@ -67,11 +67,15 @@
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
-        <h1>Modals</h1>
-        <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
-        <button onclick="showPopup();">Launch Popup</button>
-
-        <h1>Links</h1>
+        <h1 id="greet">Loading…</h1>
+<script>
+  // When Telegram provides user info, greet them by first name
+  Telegram.WebApp.ready();
+  const me = Telegram.WebApp.initDataUnsafe.user;
+  document.getElementById("greet").innerText =
+    me ? `Hello, ${me.first_name}!` : "Hello, World!";
+</script>
+Links</h1>
         <ul>
             <li>
                 <a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/trendingapps');">Open link within Telegram</a>
